@@ -78,11 +78,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     async function displayPokemons() {
-        for (let i = 1; i <= 20; i++) {
+        for (let i = 1; i <= 150; i++) { // Alterado de 20 para 150
             const pokemon = await fetchPokemon(i);
             createPokemonCard(pokemon);
         }
     }
-
+  
     displayPokemons();
 });
