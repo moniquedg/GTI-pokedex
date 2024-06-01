@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function createPokemonCard(pokemon) {
         const card = document.createElement('div');
-        card.className = 'bg-white p-4 rounded-lg shadow-lg flex flex-col items-center cursor-pointer';
-        card.onclick = () => selectPokemon(pokemon);
+        card.className = 'pokemon-card bg-white p-4 rounded-lg shadow-lg flex flex-col items-center cursor-pointer';
+        card.onclick = () => selectPokemon(card, pokemon);
 
         const img = document.createElement('img');
         img.src = pokemon.sprites.front_default;
@@ -42,11 +42,16 @@ document.addEventListener('DOMContentLoaded', () => {
         pokemonContainer.appendChild(card);
     }
 
-    function selectPokemon(pokemon) {
-        if (selectedPokemons.length < 6 && !selectedPokemons.includes(pokemon)) {
+    function selectPokemon(card, pokemon) {
+        const isSelected = selectedPokemons.includes(pokemon);
+        if (isSelected) {
+            selectedPokemons = selectedPokemons.filter(p => p !== pokemon);
+            card.classList.remove('border-green-500');
+        } else if (selectedPokemons.length < 6) {
             selectedPokemons.push(pokemon);
-            updateTeamList();
+            card.classList.add('border-green-500');
         }
+        updateTeamList();
     }
 
     function updateTeamList() {
