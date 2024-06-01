@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function loadPokemons() {
-        for (let i = 1; i <= 150; i++) { // Alterado de 20 para 150
+        for (let i = 1; i <= 150; i++) { 
             const pokemon = await fetchPokemon(i);
             pokemons.push(pokemon);
         }
@@ -37,14 +37,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!selectedPokemons.includes(pokemon) && selectedPokemons.length < 6) {
             selectedPokemons.push(pokemon);
             addToTeamButton.classList.add('bg-green-500');
-            addToTeamButton.textContent = "Selecionado!";
+            addToTeamButton.textContent = "Selecionado";
         } else {
             alert('Você já selecionou este Pokémon ou atingiu o limite de 6 Pokémons.');
         }
     }
 
     function updateTeamList() {
-        // Atualiza a lista de Pokémons selecionados (se necessário)
+        
     }
 
     addToTeamButton.addEventListener('click', () => {
