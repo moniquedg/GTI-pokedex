@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     saveTeamButton.addEventListener('click', () => {
         const teamName = teamNameInput.value.trim();
-        if (teamName && selectedPokemons.length > 0) {
+        if (teamName && selectedPokemons.length > 5) {
             const team = {
                 name: teamName,
                 pokemons: selectedPokemons.map(pokemon => ({
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const teamData = encodeURIComponent(JSON.stringify(team));
             window.location.href = `team.html?team=${teamData}`;
         } else {
-            alert('Por favor, insira um nome para o time e selecione pelo menos um Pokémon.');
+            alert('Por favor, insira um nome para o time e selecione 6 Pokémons para o sua equipe.');
         }
     });
 
