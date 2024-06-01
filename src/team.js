@@ -18,12 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
         img.className = 'h-24 w-24 mb-2';
 
         const name = document.createElement('h2');
-        name.textContent = pokemon.name;
+        name.textContent = `${pokemon.id} - ${pokemon.name}`;
         name.className = 'text-lg font-semibold capitalize';
-
-        const id = document.createElement('p');
-        id.textContent = `ID: ${pokemon.id}`;
-        id.className = 'text-gray-500';
 
         const types = document.createElement('p');
         types.textContent = `Type: ${pokemon.type.join(', ')}`;
@@ -31,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         card.appendChild(img);
         card.appendChild(name);
-        card.appendChild(id);
         card.appendChild(types);
 
         teamContainer.appendChild(card);
